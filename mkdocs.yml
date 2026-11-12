@@ -1,0 +1,69 @@
+# Site metadata & build directories (read by Zensical via MkDocs compatibility).
+site_name: Przemysław Stawczyk
+site_url: https://przestaw.github.io/
+site_description: Senior C++ / Python Engineer — low-latency, distributed & embedded systems, tutorials, and open-source projects.
+docs_dir: docs
+site_dir: site
+
+# NOTE: Exclude Jekyll metadata, roadmap files, and the Polish translation
+# source shipped inside submodules from standalone page generation.
+# include-markdown reads README.pl.md directly from disk for /pl/boost-python/.
+exclude_docs: |
+  _config.yml
+  TODO.md
+  boost-python/README.pl.md
+
+# Theme & color palette.
+theme:
+  name: material
+  # Reusable przestaw dark theme layer, vendored as a Git submodule
+  # (https://github.com/przestaw/zensical_przestaw).
+  custom_dir: theme/zensical_przestaw/overrides
+  variant: classic
+  language: en
+  features:
+    - navigation.top
+    - search.suggest
+    - search.highlight
+  # Dark-only: zensical_przestaw does not support a light color scheme.
+  palette:
+    scheme: slate
+    primary: black
+    accent: green
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/dark-minimal.js
+
+# Language selector links (EN at root, PL under /pl/; no i18n plugin required).
+extra:
+  alternate:
+    - name: English
+      link: /
+      lang: en
+    - name: Polski
+      link: /pl/
+      lang: pl
+
+# Site navigation (mirrored by the custom fixed sidebar in dark-minimal.js).
+nav:
+  - EN:
+      - Home: index.md
+      - Projects: projects/index.md
+      - Boost.Python: boost-python/README.md
+  - PL:
+      - Start: pl/index.md
+      - Projekty: pl/projekty/index.md
+      - Boost.Python: pl/boost-python/index.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.superfences
+
+plugins:
+  - search
+  - include-markdown

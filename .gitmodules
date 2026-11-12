@@ -1,0 +1,6 @@
+[submodule "docs/boost-python"]
+	path = docs/boost-python
+	url = https://github.com/przestaw/Boost-Python_tutorial.git
+[submodule "theme/zensical_przestaw"]
+	path = theme/zensical_przestaw
+	url = https://github.com/przestaw/zensical_przestaw.git
