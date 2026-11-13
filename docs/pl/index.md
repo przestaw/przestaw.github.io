@@ -45,32 +45,10 @@ hide: [navigation, toc]
       </a>
     </div>
 
-    <div class="dm-marquee-wrap" aria-label="Technologie">
-      <div class="dm-marquee-fade-left"></div>
-      <div class="dm-marquee-fade-right"></div>
-      <div class="dm-marquee-track">
-        <span class="dm-tech-pill"><span class="dm-tech-dot"></span>C++17 / C++20</span>
-        <span class="dm-tech-pill"><span class="dm-tech-dot"></span>Python</span>
-        <span class="dm-tech-pill"><span class="dm-tech-dot"></span>Linux</span>
-        <span class="dm-tech-pill"><span class="dm-tech-dot"></span>FIX &amp; Market Data</span>
-        <span class="dm-tech-pill"><span class="dm-tech-dot"></span>RTOS &amp; Embedded</span>
-        <span class="dm-tech-pill"><span class="dm-tech-dot"></span>MQTT / Modbus / Protobuf</span>
-        <span class="dm-tech-pill"><span class="dm-tech-dot"></span>Qt / VTK / Vulkan</span>
-        <span class="dm-tech-pill"><span class="dm-tech-dot"></span>CMake &amp; Docker</span>
-        <span class="dm-tech-pill" aria-hidden="true"><span class="dm-tech-dot"></span>C++17 / C++20</span>
-        <span class="dm-tech-pill" aria-hidden="true"><span class="dm-tech-dot"></span>Python</span>
-        <span class="dm-tech-pill" aria-hidden="true"><span class="dm-tech-dot"></span>Linux</span>
-        <span class="dm-tech-pill" aria-hidden="true"><span class="dm-tech-dot"></span>FIX &amp; Market Data</span>
-        <span class="dm-tech-pill" aria-hidden="true"><span class="dm-tech-dot"></span>RTOS &amp; Embedded</span>
-        <span class="dm-tech-pill" aria-hidden="true"><span class="dm-tech-dot"></span>MQTT / Modbus / Protobuf</span>
-        <span class="dm-tech-pill" aria-hidden="true"><span class="dm-tech-dot"></span>Qt / VTK / Vulkan</span>
-        <span class="dm-tech-pill" aria-hidden="true"><span class="dm-tech-dot"></span>CMake &amp; Docker</span>
-      </div>
-    </div>
 
+    <h3 class="dm-skills-title">Czym się zajmuję?</h3>
     <div class="dm-skills-glitch">
       <div>
-        <h3 class="dm-skills-title">Czym się zajmuję?</h3>
         <ul class="dm-skills-list">
           <li class="dm-skill-card is-open" data-skill-item>
             <button type="button" class="dm-skill-header" data-skill-toggle>
