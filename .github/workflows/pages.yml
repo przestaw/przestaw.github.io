@@ -49,8 +49,39 @@ jobs:
       - name: Build static site
         run: zensical build --clean
 
-      # Keep unlisted research subpages out of generated discovery indexes.
-      - name: Strip unlisted paths from search and sitemap
+      # Scan the actual artifact, including search data and assets, without logging contact values.
+      - name: Check published contact privacy
+        run: |
+          python - <<'PY'
+          import html
+          import pathlib
+          import re
+          import urllib.parse
+
+          email = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
+          contact = re.compile(r"""\b(?:href|src)\s*=\s*["'](?:mailto|tel):""", re.I)
+          assert email.search("person@example.test")
+          assert email.search(html.unescape("person&#64;example.test"))
+          assert contact.search('<a href="tel:+123456789">')
+          assert not contact.search('const protocols = ["tel:", "https:"];')
+          assert not email.search("https://github.com/przestaw")
+
+          site = pathlib.Path("site")
+          if not (site / "index.html").is_file():
+              raise SystemExit("Missing built site/index.html")
+          violations = []
+          for path in site.rglob("*"):
+              if path.is_file() and path.suffix.lower() in {".html", ".json", ".xml", ".js", ".css", ".txt", ".map"}:
+                  text = html.unescape(urllib.parse.unquote(path.read_text(encoding="utf-8")))
+                  if email.search(text) or contact.search(text):
+                      violations.append(path.relative_to(site).as_posix())
+          if violations:
+              raise SystemExit("Contact privacy check failed in: " + ", ".join(violations))
+          print("Contact privacy check passed")
+          PY
+
+      # Keep the standalone research submodule out of the main site's discovery indexes.
+      - name: Scope search and sitemap to the main site
         run: |
           python - <<'PY'
           import json

@@ -68,6 +68,11 @@ zensical build --clean
 
 ## Publikacja
 
+Kontakt prowadzi przez podlinkowane profile, bez publikowania adresów e-mail i linków telefonicznych.
+CI przed wysłaniem sprawdza HTML, indeks wyszukiwania i zasoby tekstowe. Odrzuca adresy e-mail oraz
+linki kontaktowe `mailto:`/`tel:`; ukrycie ich w CSS lub JavaScript nie stanowi ochrony prywatności.
+Ta kontrola nie usuwa informacji z historii Git ani z profili zewnętrznych.
+
 Workflow `.github/workflows/pages.yml` buduje i publikuje stronę na GitHub Pages (`https://przestaw.github.io/`) po wypchnięciu zmian na gałąź `main`/`master` oraz przy ręcznym uruchomieniu (`workflow_dispatch`):
 
 1. Pobiera repozytorium wraz z submodułami (`submodules: recursive`).

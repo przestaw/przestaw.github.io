@@ -68,6 +68,11 @@ zensical build --clean
 
 ## Publishing
 
+Contact goes through the linked profiles, not published email addresses or phone links.
+CI checks built HTML, search data and text assets before upload. It rejects email addresses and
+`mailto:`/`tel:` contact links; hiding them with CSS or JavaScript is not a privacy control.
+This check does not remove information from Git history or external profiles.
+
 `.github/workflows/pages.yml` builds and deploys the site to GitHub Pages (`https://przestaw.github.io/`) on pushes to `main`/`master` and manual `workflow_dispatch` runs:
 
 1. Checks out the repository and submodules recursively (`submodules: recursive`).
