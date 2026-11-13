@@ -14,6 +14,7 @@ hide: [navigation, toc]
           <li><a class="dm-nav-link active" href="#home"><span class="dm-nav-indicator"></span><span>Start</span></a></li>
           <li><a class="dm-nav-link" href="#projects"><span class="dm-nav-indicator"></span><span>Projekty</span></a></li>
           <li><a class="dm-nav-link" href="boost-python/"><span class="dm-nav-indicator"></span><span>Boost.Python</span></a></li>
+          <li><a class="dm-nav-link" href="workctl/"><span class="dm-nav-indicator"></span><span>workctl</span></a></li>
           <li><a class="dm-nav-link" href="#contact"><span class="dm-nav-indicator"></span><span>Kontakt</span></a></li>
           <li class="dm-lang-item">
             <div class="dm-lang-switch" role="group" aria-label="Wybór języka">
@@ -126,7 +127,7 @@ hide: [navigation, toc]
       </div>
 
       <div class="dm-glitch-box" aria-label="Animowana matryca znaków">
-        <canvas class="dm-glitch-canvas" data-letter-glitch></canvas>
+        <div data-przestaw-letters></div>
         <div class="dm-glitch-vignette"></div>
       </div>
     </div>
@@ -166,7 +167,7 @@ hide: [navigation, toc]
         <div class="dm-project-meta">
           <div class="dm-project-info">
             <h4>workctl — Unified CLI &amp; MCP Server</h4>
-            <span>Pojedyncza binarka Go i serwer MCP (domyślnie read-only) łączący GitHub, GitLab, Jirę, Confluence i Azure DevOps dla agentów AI</span>
+            <span>Połącz agentów ze swoimi usługami przez konfigurowalne API — od programowania i monitoringu po deployment, zarządzanie i własne procesy pracy</span>
           </div>
           <div class="dm-project-actions">
             <a class="dm-icon-btn" target="_blank" rel="noopener noreferrer" href="https://github.com/przestaw/cli-tools-MCP" aria-label="Kod na GitHubie">
@@ -174,8 +175,8 @@ hide: [navigation, toc]
             </a>
           </div>
         </div>
-        <a class="dm-project-preview" target="_blank" rel="noopener noreferrer" href="https://github.com/przestaw/cli-tools-MCP">
-          <div class="dm-preview-top"><span>GITHUB · GITLAB · JIRA · ADO</span><span class="dm-preview-badge">GO · MCP SERVER</span></div>
+        <a class="dm-project-preview" href="workctl/" aria-label="Czytaj przewodnik workctl">
+          <div class="dm-preview-top"><span>TWOJE USŁUGI · HTTP · SSH</span><span class="dm-preview-badge">GO · MCP SERVER</span></div>
           <pre class="dm-preview-code"><code><span class="hl-green">workctl</span> init
 <span class="hl-green">workctl</span> pr show --repo owner/repo 42 \
   --include checks,reviews

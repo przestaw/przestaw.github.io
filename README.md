@@ -11,6 +11,7 @@ Personal portfolio, project directory, and engineering tutorials for **Przemysł
 ├─ .github/workflows/pages.yml    # Automated GitHub Pages build & deploy
 ├─ mkdocs.yml                     # Zensical site & navigation configuration
 ├─ requirements.txt               # Pinned Zensical version
+├─ content/workctl/               # Git submodule; only README EN/PL are included
 ├─ theme/
 │  └─ zensical_przestaw/          # Git submodule: przestaw/zensical_przestaw
 └─ docs/
@@ -21,8 +22,7 @@ Personal portfolio, project directory, and engineering tutorials for **Przemysł
    │  ├─ index.md                 # Polish home page
    │  ├─ projekty/index.md        # Polish project & publication directory
    │  └─ boost-python/index.md    # Polish Boost.Python tutorial (includes README.pl.md)
-   ├─ stylesheets/extra.css       # Dark Minimal layout & token aliases
-   └─ javascripts/dark-minimal.js # Sidebar navigation, skills accordion, letter canvas
+   └─ javascripts/portfolio-config.js # Consumer-owned portfolio navigation data
 ```
 
 - `docs/` serves the default **English** version at `/`.
@@ -33,7 +33,13 @@ Personal portfolio, project directory, and engineering tutorials for **Przemysł
 | Path | Repository | Purpose |
 | ---- | ---------- | ------- |
 | `docs/boost-python` | [`przestaw/Boost-Python_tutorial`](https://github.com/przestaw/Boost-Python_tutorial) | English (`README.md`) and Polish (`README.pl.md`) `Boost.Python` tutorial |
-| `theme/zensical_przestaw` | [`przestaw/zensical_przestaw`](https://github.com/przestaw/zensical_przestaw) | Reusable dark theme layer (`theme.custom_dir`) |
+| `theme/zensical_przestaw` | [`przestaw/zensical_przestaw`](https://github.com/przestaw/zensical_przestaw) | Reusable dark theme layer and opt-in portfolio surface (`theme.custom_dir`) |
+| `content/workctl` | [`przestaw/cli-tools-MCP`](https://github.com/przestaw/cli-tools-MCP) | `README.md` and `README.pl.md` at `/workctl/` and `/pl/workctl/`; source code stays outside `docs/` |
+
+The site pins each submodule to a reviewed commit. CI checks out those pins, not the latest branch heads.
+After a workctl documentation release, update its gitlink and rebuild; do not copy README content into this repository.
+Only the two wrapper pages include workctl Markdown. Its source, tests, configuration examples and internal plans are
+not copied into the published artifact.
 
 Clone with `--recurse-submodules`, or initialize submodules in an existing checkout:
 

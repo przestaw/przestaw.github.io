@@ -14,6 +14,7 @@ hide: [navigation, toc]
           <li><a class="dm-nav-link active" href="#home"><span class="dm-nav-indicator"></span><span>Home</span></a></li>
           <li><a class="dm-nav-link" href="#projects"><span class="dm-nav-indicator"></span><span>Projects</span></a></li>
           <li><a class="dm-nav-link" href="boost-python/"><span class="dm-nav-indicator"></span><span>Boost.Python</span></a></li>
+          <li><a class="dm-nav-link" href="workctl/"><span class="dm-nav-indicator"></span><span>workctl</span></a></li>
           <li><a class="dm-nav-link" href="#contact"><span class="dm-nav-indicator"></span><span>Contact</span></a></li>
           <li class="dm-lang-item">
             <div class="dm-lang-switch" role="group" aria-label="Language selector">
@@ -126,7 +127,7 @@ hide: [navigation, toc]
       </div>
 
       <div class="dm-glitch-box" aria-label="Animated character glitch matrix">
-        <canvas class="dm-glitch-canvas" data-letter-glitch></canvas>
+        <div data-przestaw-letters></div>
         <div class="dm-glitch-vignette"></div>
       </div>
     </div>
@@ -166,7 +167,7 @@ hide: [navigation, toc]
         <div class="dm-project-meta">
           <div class="dm-project-info">
             <h4>workctl — Unified CLI &amp; MCP Server</h4>
-            <span>Single Go binary &amp; read-only-by-default MCP server unifying GitHub, GitLab, Jira, Confluence, and Azure DevOps for AI coding agents</span>
+            <span>Connect coding agents to your services through configurable APIs — from development and monitoring to deployment, management and custom workflows</span>
           </div>
           <div class="dm-project-actions">
             <a class="dm-icon-btn" target="_blank" rel="noopener noreferrer" href="https://github.com/przestaw/cli-tools-MCP" aria-label="GitHub repository">
@@ -174,8 +175,8 @@ hide: [navigation, toc]
             </a>
           </div>
         </div>
-        <a class="dm-project-preview" target="_blank" rel="noopener noreferrer" href="https://github.com/przestaw/cli-tools-MCP">
-          <div class="dm-preview-top"><span>GITHUB · GITLAB · JIRA · ADO</span><span class="dm-preview-badge">GO · MCP SERVER</span></div>
+        <a class="dm-project-preview" href="workctl/" aria-label="Read the workctl guide">
+          <div class="dm-preview-top"><span>YOUR SERVICES · HTTP · SSH</span><span class="dm-preview-badge">GO · MCP SERVER</span></div>
           <pre class="dm-preview-code"><code><span class="hl-green">workctl</span> init
 <span class="hl-green">workctl</span> pr show --repo owner/repo 42 \
   --include checks,reviews

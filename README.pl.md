@@ -11,6 +11,7 @@ Strona osobista, katalog projektów open-source oraz tutoriale techniczne **Prze
 ├─ .github/workflows/pages.yml    # Automatyczny build i wdrożenie GitHub Pages
 ├─ mkdocs.yml                     # Konfiguracja strony i nawigacji Zensical
 ├─ requirements.txt               # Przypięta wersja Zensical
+├─ content/workctl/               # Submoduł Git; osadzane są tylko README EN/PL
 ├─ theme/
 │  └─ zensical_przestaw/          # Submoduł Git: przestaw/zensical_przestaw
 └─ docs/
@@ -21,8 +22,7 @@ Strona osobista, katalog projektów open-source oraz tutoriale techniczne **Prze
    │  ├─ index.md                 # Strona główna (PL)
    │  ├─ projekty/index.md        # Katalog projektów i publikacji (PL)
    │  └─ boost-python/index.md    # Polski tutorial Boost.Python (osadza README.pl.md)
-   ├─ stylesheets/extra.css       # Układ Dark Minimal oraz aliasy tokenów
-   └─ javascripts/dark-minimal.js # Pasek boczny, akordeon umiejętności, animacja matrycy
+   └─ javascripts/portfolio-config.js # Dane nawigacji portfolio należące do strony
 ```
 
 - `docs/` zawiera domyślną wersję **angielską** pod `/`.
@@ -33,7 +33,13 @@ Strona osobista, katalog projektów open-source oraz tutoriale techniczne **Prze
 | Ścieżka | Repozytorium | Przeznaczenie |
 | ------- | ------------ | ------------- |
 | `docs/boost-python` | [`przestaw/Boost-Python_tutorial`](https://github.com/przestaw/Boost-Python_tutorial) | Angielski (`README.md`) i polski (`README.pl.md`) przewodnik `Boost.Python` |
-| `theme/zensical_przestaw` | [`przestaw/zensical_przestaw`](https://github.com/przestaw/zensical_przestaw) | Współdzielona warstwa ciemnego motywu (`theme.custom_dir`) |
+| `theme/zensical_przestaw` | [`przestaw/zensical_przestaw`](https://github.com/przestaw/zensical_przestaw) | Współdzielona warstwa ciemnego motywu i opcjonalne portfolio (`theme.custom_dir`) |
+| `content/workctl` | [`przestaw/cli-tools-MCP`](https://github.com/przestaw/cli-tools-MCP) | `README.md` i `README.pl.md` pod `/workctl/` i `/pl/workctl/`; kod źródłowy pozostaje poza `docs/` |
+
+Strona przypina submoduły do sprawdzonych commitów. CI pobiera te rewizje, nie najnowsze końcówki gałęzi.
+Po wydaniu dokumentacji workctl zaktualizuj gitlink i przebuduj stronę; nie kopiuj treści README do tego repozytorium.
+Tylko dwie strony osadzają Markdown workctl. Kod, testy, przykładowa konfiguracja i plany wewnętrzne nie trafiają
+do publikowanego artefaktu.
 
 Klonowanie wraz z submodułami lub inicjalizacja w istniejącej kopii roboczej:
 

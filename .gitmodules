@@ -4,3 +4,11 @@
 [submodule "theme/zensical_przestaw"]
 	path = theme/zensical_przestaw
 	url = https://github.com/przestaw/zensical_przestaw.git
+[submodule "docs/om-5-firmware-patches"]
+	path = docs/om-5-firmware-patches
+	url = https://github.com/przestaw/OM-5-firmware-patches.git
+	branch = main
+[submodule "content/workctl"]
+	path = content/workctl
+	url = https://github.com/przestaw/cli-tools-MCP.git
+	branch = main

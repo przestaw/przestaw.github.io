@@ -14,10 +14,12 @@ Practical tutorial on exposing C++ functions and classes to Python with `Boost.P
 
 ### workctl — Unified CLI & MCP Server for AI Agents
 
-Single Go binary CLI and Model Context Protocol (MCP) server built for AI coding agents (VS Code Copilot, Claude Code, Codex). Unifies GitHub, GitLab, Jira, Confluence, and Azure DevOps behind one compact, token-efficient schema. Enforces read-only access by default (`policy.allow_write` / `confirm_writes`), per-repository account isolation, and strict credential storage in the OS keyring.
+CLI and Model Context Protocol (MCP) server in Go that connects coding agents to configurable HTTP APIs and allow-listed SSH commands. Use it for development services, monitoring, CI/CD, packages, deployments, administration and custom workflows. Built-in provider commands are shortcuts, not a closed service list: generic access depends on protocol, authentication and endpoint configuration. Writes are disabled by default, with optional per-operation, batch or MCP-session approvals.
 
 - **Code:** [przestaw/cli-tools-MCP](https://github.com/przestaw/cli-tools-MCP)
-- **Technologies:** Go, MCP (Model Context Protocol), GitHub / GitLab / Jira / Confluence / Azure DevOps APIs, OS Keyring
+- **Read on this site:** [workctl guide](../workctl/)
+- **Example integrations:** built-in commands for GitHub, GitLab, Jira, Confluence and Azure DevOps; maintainer-verified API use with Jenkins and Conan. These examples do not limit which compatible services can be configured.
+- **Technologies:** Go, MCP, HTTP APIs, monitoring and deployment APIs, OS Keyring
 
 ### nbc4gpu — Naive Bayes Classifier on GPU
 

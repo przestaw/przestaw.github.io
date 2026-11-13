@@ -31,38 +31,37 @@ theme:
     primary: black
     accent: green
 
-extra_css:
-  - stylesheets/extra.css
-
 extra_javascript:
-  - javascripts/dark-minimal.js
+  - javascripts/portfolio-config.js
 
-# Language selector links (EN at root, PL under /pl/; no i18n plugin required).
+# The portfolio config owns locale routes within this single build.
+# extra.alternate expects separate localized sites and rewrites these links incorrectly.
 extra:
-  alternate:
-    - name: English
-      link: /
-      lang: en
-    - name: Polski
-      link: /pl/
-      lang: pl
+  przestaw:
+    portfolio: true
 
-# Site navigation (mirrored by the custom fixed sidebar in dark-minimal.js).
+# Site navigation (mirrored by consumer-owned portfolio-config.js data).
 nav:
   - EN:
       - Home: index.md
       - Projects: projects/index.md
       - Boost.Python: boost-python/README.md
+      - workctl: workctl/index.md
   - PL:
       - Start: pl/index.md
       - Projekty: pl/projekty/index.md
       - Boost.Python: pl/boost-python/index.md
+      - workctl: pl/workctl/index.md
 
 markdown_extensions:
   - admonition
   - attr_list
   - pymdownx.details
   - pymdownx.superfences
+  # Include only selected Markdown from content submodules, not their source trees.
+  - pymdownx.snippets:
+      base_path: ["."]
+      check_paths: true
 
 plugins:
   - search

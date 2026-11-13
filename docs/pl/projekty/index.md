@@ -14,10 +14,12 @@ Praktyczny przewodnik pokazujący, jak udostępniać funkcje i klasy C++ w Pytho
 
 ### workctl — Zunifikowany CLI i serwer MCP dla agentów AI
 
-Pojedyncza binarka CLI w Go oraz serwer Model Context Protocol (MCP) dla agentów programistycznych AI (VS Code Copilot, Claude Code, Codex). Łączy GitHub, GitLab, Jirę, Confluence oraz Azure DevOps w jednym zwięzłym, oszczędnym tokenowo schemacie odpowiedzi. Działa domyślnie w trybie tylko do odczytu (`policy.allow_write` / `confirm_writes`), zapewnia izolację kont per repozytorium oraz przechowuje poświadczenia wyłącznie w systemowym pęku kluczy (OS keyring).
+CLI i serwer Model Context Protocol (MCP) w Go, który łączy agentów z konfigurowalnymi API HTTP i dozwolonymi poleceniami SSH. Może służyć do obsługi narzędzi programistycznych, monitoringu, CI/CD, pakietów, deploymentów, administracji i własnych procesów pracy. Wbudowane polecenia dostawców są ułatwieniem, nie zamkniętą listą usług: ogólny dostęp zależy od protokołu, uwierzytelniania i konfiguracji endpointów. Zapis jest domyślnie wyłączony; opcjonalne zgody dotyczą operacji, batcha lub połączenia MCP.
 
 - **Kod:** [przestaw/cli-tools-MCP](https://github.com/przestaw/cli-tools-MCP)
-- **Technologie:** Go, MCP (Model Context Protocol), API GitHub / GitLab / Jira / Confluence / Azure DevOps, OS Keyring
+- **Czytaj na stronie:** [przewodnik workctl](../workctl/)
+- **Przykładowe integracje:** wbudowane polecenia dla GitHuba, GitLaba, Jiry, Confluence i Azure DevOps; potwierdzona przez autora praca przez API z Jenkinsem i Conanem. Przykłady nie ograniczają listy zgodnych usług, które można skonfigurować.
+- **Technologie:** Go, MCP, API HTTP, API monitoringu i deploymentu, OS Keyring
 
 ### nbc4gpu — Naive Bayes Classifier na GPU
 

@@ -24,11 +24,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # Fetch content and theme submodules (docs/boost-python, theme/zensical_przestaw).
+      # Fetch pinned content and theme submodules, including the README-only workctl import.
       - name: Checkout repository and submodules
         uses: actions/checkout@v4
         with:
+          # CONTENT_READ_TOKEN is a fine-grained, read-only token scoped only to
+          # private content/theme repositories. It is never persisted in the checkout.
+          token: ${{ secrets.CONTENT_READ_TOKEN }}
           submodules: recursive
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -44,6 +48,31 @@ jobs:
 
       - name: Build static site
         run: zensical build --clean
+
+      # Keep unlisted research subpages out of generated discovery indexes.
+      - name: Strip unlisted paths from search and sitemap
+        run: |
+          python - <<'PY'
+          import json
+          import pathlib
+          import re
+
+          site = pathlib.Path("site")
+          search = site / "search.json"
+          if search.exists():
+              data = json.loads(search.read_text(encoding="utf-8"))
+              data["items"] = [
+                  item for item in data["items"]
+                  if not item.get("location", "").startswith("om-5-firmware-patches/")
+              ]
+              search.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+
+          sitemap = site / "sitemap.xml"
+          if sitemap.exists():
+              txt = sitemap.read_text(encoding="utf-8")
+              txt = re.sub(r"\s*<url>\s*<loc>[^<]*/om-5-firmware-patches/[^<]*</loc>\s*</url>", "", txt)
+              sitemap.write_text(txt, encoding="utf-8")
+          PY
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
